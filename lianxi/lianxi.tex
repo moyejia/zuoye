@@ -1,0 +1,181 @@
+%% 该模板修改自《计算机学报》latex 模板
+%% 主要是将双栏改成单栏，去掉了部分计算机学报标识；
+%% 源文件自：https://www.overleaf.com/latex/templates/latextemplet-cjc-xelatex/ybmmymncrrmw
+%% 
+%%
+%% This is file `CjC_template_tex.tex',
+%% is modified by Zhi Wang (zhiwang@ieee.org) based on the template 
+%% provided by Chinese Journal of Computers (http://cjc.ict.ac.cn/).
+%%
+%% This version is capable with Overleaf (XeLaTeX).
+%%
+%% Update date: 2023/03/10
+%% -------------------------------------------------------------------
+%% Copyright (C) 2016--2023 
+%% -------------------------------------------------------------------
+%% This file may be distributed and/or modified under the
+%% conditions of the LaTeX Project Public License, either version 1.3c
+%% of this license or (at your option) any later version.
+%% The latest version of this license is in
+%%    https://www.latex-project.org/lppl.txt
+%% and version 1.3c or later is part of all distributions of LaTeX
+%% version 2008 or later.
+%% -------------------------------------------------------------------
+
+\documentclass[10.5pt,compsoc,UTF8]{CjC}
+\usepackage{CTEX}
+\usepackage{graphicx}
+\usepackage{footmisc}
+\usepackage{subfigure}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage[noadjust]{cite}
+\usepackage{amsmath,amsthm}
+\usepackage{amssymb,amsfonts}
+\usepackage{booktabs}
+\usepackage{color}
+\usepackage{ccaption}
+\usepackage{booktabs}
+\usepackage{float}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\usepackage{xcolor,stfloats}
+\usepackage{comment}
+\setcounter{page}{1}
+\graphicspath{{figures/}}
+\usepackage{cuted}%flushend,
+\usepackage{captionhack}
+\usepackage{epstopdf}
+\usepackage{gbt7714}
+
+%===============================%
+
+\headevenname{\mbox{\quad} \hfill  \mbox{\zihao{-5}{ \hfill 机器学习  } \hspace {50mm} \mbox{2024 年 5 月}}}%
+\headoddname{韩海宇 \hfill 练习}%
+
+%footnote use of *
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\setcounter{footnote}{0}
+\renewcommand\footnotelayout{\zihao{5-}}
+
+\newtheoremstyle{mystyle}{0pt}{0pt}{\normalfont}{1em}{\bf}{}{1em}{}
+\theoremstyle{mystyle}
+\renewcommand\figurename{figure~}
+\renewcommand{\thesubfigure}{(\alph{subfigure})}
+\newcommand{\upcite}[1]{\textsuperscript{\cite{#1}}}
+\renewcommand{\labelenumi}{(\arabic{enumi})}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+\newcommand{\abc}{\color{white}\vrule width 2pt}
+\renewcommand{\bibsection}{}
+\makeatletter
+\renewcommand{\@biblabel}[1]{[#1]\hfill}
+\makeatother
+\setlength\parindent{2em}
+%\renewcommand{\hth}{\begin{CJK*}{UTF8}{gbsn}}
+%\renewcommand{\htss}{\begin{CJK*}{UTF8}{gbsn}}
+
+
+\begin{document}
+
+\hyphenpenalty=50000
+\makeatletter
+\newcommand\mysmall{\@setfontsize\mysmall{7}{9.5}}
+\newenvironment{tablehere}
+  {\def\@captype{table}}
+
+\let\temp\footnote
+\renewcommand \footnote[1]{\temp{\zihao{-5}#1}}
+
+
+\thispagestyle{plain}%
+\thispagestyle{empty}%
+\pagestyle{CjCheadings}
+
+% \begin{table*}[!t]
+\vspace {-13mm}
+
+
+\onecolumn
+\zihao{5-}\noindent 韩海宇 \hfill 机器学习\hfill 2024 年 5 月\\
+\noindent\rule[0.25\baselineskip]{\textwidth}{1pt}
+
+% \onecolumn
+% \zihao{5-}\noindent 第??卷\quad 第?期 \hfill 计\quad 算\quad 机\quad 学\quad 报\hfill Vol. ??  No. ?\\
+% \zihao{5-}
+% 20??年?月 \hfill CHINESE JOURNAL OF COMPUTERS \hfill ???. 20??\\ 
+% \noindent\rule[0.25\baselineskip]{\textwidth}{1pt}
+
+{
+\centering
+\vspace {11mm}
+{\zihao{2} \heiti 练习}
+
+\vskip 5mm
+
+{\zihao{4}\fangsong 韩海宇}
+
+% \footnote{\noindent \zihao{6} 
+% % 收稿日期：\quad \quad -\quad -\quad ；最终修改稿收到日期：\quad \quad -\quad -\quad .*投稿时不填写此项*. 本课题得到… …基金中文完整名称(No.项目号)、… …基金中文完整名称(No.项目号)、… … 基金中文完整名称(No.项目号)资助.
+% \textsf{作者名1}，学号，学位(或目前学历),主要研究领域为*****、****. E-mail: **************.\textsf{作者名2}，学号，学位(或目前学历),主要研究领域为*****、****. E-mail: **************. \textsf{作者名3}，学号，学位(或目前学历),主要研究领域为*****、****. E-mail: **************.}
+
+
+
+
+
+% \zihao{6}{\textsf{论文定稿后，作者署名、单位无特殊情况不能变更。若变更，须提交签章申请，国家为中国可以不写，省会城市不写省名，其他国家必须写国家名。}}
+}
+
+\vskip 5mm
+
+
+\section{\heiti 题目要求}
+
+在总共200人的样本中： 有10人事实上患有A病（阳性）；经过检测后，9人判定患有A病，而1人判定并不患有A病；另外的190人实际上并不患有A病（阴性），经过检测后，其中的10人被判定患有A病，另外的180人判定不患有A病。
+
+计算精度、错误率、特异度、敏感度。
+\section{\heiti 解答}
+
+TP（True Positive）表示真阳性，FP（False Positive）表示假阳性，TN（True Negative）表示真阴性，FN（False Negative）表示假阴性。
+
+根据给定的数据：
+
+10人实际上患有A病（阳性），其中9人被正确判定患病（TP = 9），1人被错误判定为不患病（FN = 1）。
+
+190人实际上不患有A病（阴性），其中180人被正确判定不患病（TN = 180），10人被错误判定为患病（FP = 10）。
+
+我们可以代入公式计算各个指标：
+
+\textbf{精度（Accuracy）：}表示正确预测的比例。
+
+\[
+\text{Accuracy} = \frac{\text{TP} + \text{TN}}{\text{TP} + \text{TN} + \text{FP} + \text{FN}} = \frac{9 + 180}{9 + 180 + 10 + 1} = \frac{189}{200} = 0.945
+\]
+
+\textbf{错误率（Error Rate）：}表示错误预测的比例。
+
+\[
+\text{Error Rate} = \frac{\text{FP} + \text{FN}}{\text{TP} + \text{TN} + \text{FP} + \text{FN}} = \frac{10 + 1}{9 + 180 + 10 + 1} = \frac{11}{200} = 0.055
+\]
+
+
+\textbf{特异度（Specificity）：}表示正确识别阴性样本的比例。
+
+\[
+\text{Specificity} = \frac{\text{TN}}{\text{TN} + \text{FP}} = \frac{180}{180 + 10} = \frac{180}{190} \approx 0.947
+\]
+
+
+\textbf{敏感度（Sensitivity）：}表示正确识别阳性样本的比例。
+
+\[
+\text{Sensitivity} = \frac{\text{TP}}{\text{TP} + \text{FN}} = \frac{9}{9 + 1} = \frac{9}{10} = 0.9
+\]
+
+\section{\heiti 总结}
+
+在这项研究中，包含200人的样本中，有10人实际患有A病。检测结果显示，这10人中有9人被正确判定为阳性，1人被误判为阴性。同时，在实际不患病的190人中，有180人被正确判定为阴性，10人被误判为阳性。基于这些数据，分类器的精度为94.5$\%$，即在所有样本中有94.5$\%$的人被正确分类。错误率为5.5$\%$，表示有5.5$\%$的样本被错误分类。特异度为94.7$\%$，意味着在所有实际不患病的人中，有94.7$\%$被正确识别为阴性。敏感度为90$\%$，表示在所有实际患病的人中，有90$\%$被正确识别为阳性。这些结果表明，分类器在识别实际阴性样本方面表现良好，同时在识别实际阳性样本方面也有较高的准确性。
+
+\end{document}
+
+
